@@ -7,7 +7,7 @@ class Session {
         $status = session_status();
 
         if($status == PHP_SESSION_DISABLED) {
-            throw new \LogicException('Sessions estão desabilitadas.');
+            erro::redirectErro('Session está desabilitada!');
         }
 
         if($status == PHP_SESSION_NONE) {

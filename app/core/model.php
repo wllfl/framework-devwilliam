@@ -10,72 +10,88 @@ class Model{
 	}
 
 	public function insert($dados=[]){
-		$campos = implode(',', array_keys($dados));
-		$params = ':' . implode(',:', array_keys($dados));
+		try{
+			$campos = implode(',', array_keys($dados));
+			$params = ':' . implode(',:', array_keys($dados));
 
-		$sql = "INSERT INTO {$this->table} ({$campos})VALUES({$params})";
-		$stm = $this->conn->prepare($sql);
+			$sql = "INSERT INTO {$this->table} ({$campos})VALUES({$params})";
+			$stm = $this->conn->prepare($sql);
 
-		foreach($dados as $key => $valor):
-			$stm->bindValue(':'.$key, $valor);
-		endforeach;	
+			foreach($dados as $key => $valor):
+				$stm->bindValue(':'.$key, $valor);
+			endforeach;	
 
-		return $stm->execute();
+			return $stm->execute();
+		}catch(Exception $e){
+			erro::redirectErro($e->getMessage());
+		}
 	}
 
 	public function update($condicao=[], $dados=[]){
 
-		$sql = "UPDATE {$this->table} SET ";
-		foreach($dados as $key => $valor):
-			$sql .= $key . '=:' . $key . ',';
-		endforeach;	
-		$sql = rtrim($sql, ',');
+		try{
+			$sql = "UPDATE {$this->table} SET ";
+			foreach($dados as $key => $valor):
+				$sql .= $key . '=:' . $key . ',';
+			endforeach;	
+			$sql = rtrim($sql, ',');
 
-		$sql .= ' WHERE 1=1 ';
-		foreach($condicao as $key => $valor):
-			$sql .= 'AND ' . $key . '=:' . $key . ' ';
-		endforeach;	
+			$sql .= ' WHERE 1=1 ';
+			foreach($condicao as $key => $valor):
+				$sql .= 'AND ' . $key . '=:' . $key . ' ';
+			endforeach;	
 
-		$stm = $this->conn->prepare($sql);
-		foreach($dados as $key => $valor):
-			$stm->bindValue(':'.$key, $valor);
-		endforeach;	
+			$stm = $this->conn->prepare($sql);
+			foreach($dados as $key => $valor):
+				$stm->bindValue(':'.$key, $valor);
+			endforeach;	
 
-		foreach($condicao as $key => $valor):
-			$stm->bindValue(':'.$key, $valor);
-		endforeach;	
+			foreach($condicao as $key => $valor):
+				$stm->bindValue(':'.$key, $valor);
+			endforeach;	
 
-		return $stm->execute();
+			return $stm->execute();
+		}catch(Exception $e){
+			erro::redirectErro($e->getMessage());
+		}
 	}
 
 	public function delete($condicao=[]){
-		$sql = "DELETE FROM {$this->table} ";
+		try{
+			$sql = "DELETE FROM {$this->table} ";
 
-		$sql .= ' WHERE 1=1 ';
-		foreach($condicao as $key => $valor):
-			$sql .= 'AND ' . $key . '=:' . $key . ' ';
-		endforeach;
+			$sql .= ' WHERE 1=1 ';
+			foreach($condicao as $key => $valor):
+				$sql .= 'AND ' . $key . '=:' . $key . ' ';
+			endforeach;
 
-		$stm = $this->conn->prepare($sql);
-		foreach($condicao as $key => $valor):
-			$stm->bindValue(':'.$key, $valor);
-		endforeach;	
+			$stm = $this->conn->prepare($sql);
+			foreach($condicao as $key => $valor):
+				$stm->bindValue(':'.$key, $valor);
+			endforeach;	
 
-		return $stm->execute();
+			return $stm->execute();
+		}catch(Exception $e){
+			erro::redirectErro($e->getMessage());
+		}
 	}
 
 	public function selectCustom($sql, $params=[], $fetchAll=true){
-		$stm = $this->conn->prepare($sql);
+		try{
+			$stm = $this->conn->prepare($sql);
 
-		foreach($params as $key => $valor):
-			$stm->bindValue(':'.$key, $valor);
-		endforeach;
+			foreach($params as $key => $valor):
+				$stm->bindValue(':'.$key, $valor);
+			endforeach;
 
-		$stm->execute();
+			$stm->execute();
 
-		if ($fetchAll)
-			return $stm->fetchAll(PDO::FETCH_OBJ);
-		else
-		    return $stm->fetch(PDO::FETCH_OBJ);
+			if ($fetchAll)
+				return $stm->fetchAll(PDO::FETCH_OBJ);
+			else
+			    return $stm->fetch(PDO::FETCH_OBJ);
+		}catch(Exception $e){
+			erro::redirectErro($e->getMessage());
+		}
 	}
 }

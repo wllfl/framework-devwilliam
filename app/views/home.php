@@ -10,8 +10,6 @@
 			<p><?=$usuario->nome?></p>
 		<h1><?php endforeach;?></h1>
 
-		<span class='label label-danger'><?=$_SESSION['privilegio']?></span>
-
 		<a href="#" class='btn btn-success'>Meu Link</a>
 	</div>
 </body>

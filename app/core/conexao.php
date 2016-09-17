@@ -44,11 +44,12 @@ class conexao {
             case 'postgre':
                 $extensao = 'pdo_pgsql';
                 break;
+            default:
+                $extensao = '';
         endswitch;
 
-        if(!extension_loaded($extensao)):
-            echo "<h1>Extensão {$extensao} não habilitada!</h1>";
-            exit();
+        if(empty($extensao) || !extension_loaded($extensao)):
+            erro::redirectErro("Extensão PDO '{$extensao}' não está habilitada!");
         endif;
     }
 
@@ -81,7 +82,7 @@ class conexao {
                 endswitch;
                 self::$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
-                print "Erro: " . $e->getMessage();
+                erro::redirectErro($e->getMessage());
             }
         }
         return self::$pdo;
