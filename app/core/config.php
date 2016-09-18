@@ -3,7 +3,7 @@
 /*
  * Constantes com parametros dos caminhos
  */
-define('BASE_URL', 'http://localhost/framework-devwilliam/');
+define('BASE_URL', 'http://localhost/clubevenus2/');
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', getcwd() . DS);
 define('APP_PATH', ROOT . 'app' . DS);
@@ -15,13 +15,22 @@ define('LIB_PATH', APP_PATH . 'libraries' . DS);
 define('HELPER_PATH', APP_PATH . 'helpers' . DS);
 define('ERRO_PATH', VIEW_PATH . 'errors' . DS);
 
+
+/*
+ * Valores padrão
+ */
+define('CONTROLLER_DEFAULT', 'adminController');
+define('METHOD_DEFAULT', 'index');
+
+
+
 /*
  * Constantes de parâmetros para configuração da conexão com banco de dados
  */
-define('SGBD', 'mysqlp');
-define('HOST', 'localhost');
-define('DBNAME', 'devwilliam');
+define('SGBD', 'mysql');
+define('HOST', 'devwilliam.com.br');
+define('DBNAME', 'devwi735_clubevenus');
 define('CHARSET', 'utf8');
-define('USER', 'root');
+define('USER', 'devwi735');
 define('PASSWORD', '011224');
 define('SERVER', 'linux');

@@ -11,6 +11,7 @@
 			padding: 10px;
 			border-radius: 3px;	
 			font-family: Arial;
+			box-shadow: 2px 2px 2px #ccc;
 		}
 
 		h3{
