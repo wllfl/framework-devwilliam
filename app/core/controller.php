@@ -4,6 +4,7 @@ class Controller{
 
 	public $session;
 	public $loader;
+	public $post = [];
 
 	public function __construct(){
 		try{

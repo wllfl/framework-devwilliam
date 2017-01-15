@@ -5,7 +5,7 @@
 	<style>
 		.container{
 			width: 1200px;
-			margin : 5 auto;
+			margin : 5px auto;
 			background-color: #ECECEC;
 			color: #444;
 			padding: 10px;

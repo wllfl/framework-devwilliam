@@ -13,13 +13,14 @@ class Model{
 		try{
 			$campos = implode(',', array_keys($dados));
 			$params = ':' . implode(',:', array_keys($dados));
+			$campos = trim($campos);
+			$params = trim($params);
 
 			$sql = "INSERT INTO {$this->table} ({$campos})VALUES({$params})";
 			$stm = $this->conn->prepare($sql);
-
 			foreach($dados as $key => $valor):
-				$stm->bindValue(':'.$key, $valor);
-			endforeach;	
+				$stm->bindValue(':' . trim($key), trim($valor));
+			endforeach;
 
 			return $stm->execute();
 		}catch(Exception $e){

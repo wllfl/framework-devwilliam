@@ -6,6 +6,7 @@ class App{
 	protected $controller = '';
 	protected $method     = '';
 	protected $params     = [];
+	protected $post       = [];
 
 	// Construtor da Classe
 	public function __construct(){
@@ -30,8 +31,8 @@ class App{
 			if(!empty($paramUrl[1])):
 				parse_str($paramUrl[1], $queryString);
 
-				foreach($queryString as $valor):
-					$param[] = $valor;
+				foreach($queryString as $key => $valor):
+					$param[] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_STRING);
 				endforeach;
 			endif;
 
@@ -48,6 +49,11 @@ class App{
 			require_once CONTROLLER_PATH . $this->controller . '.php';
 			$this->controller = new $this->controller;
 
+			if (isset($_POST)):
+			   $this->cleanPOST();
+			   $this->controller->post = $this->post;
+			endif;
+
 			if(method_exists($this->controller, $this->method)):
 				call_user_func_array([$this->controller, $this->method], $this->params);
 			endif;	
@@ -55,5 +61,12 @@ class App{
 			erro::redirectErro("Arquivo Controller não encontrado '" . CONTROLLER_PATH . $this->controller . ".php'!");
 		endif;
 	} 
+
+	// Método para limpar os valores enviados via POST
+	private function cleanPOST(){
+		foreach($_POST as $key => $valor):
+			$this->post[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING);
+		endforeach;	
+	}
 
 }
