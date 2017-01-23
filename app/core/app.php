@@ -26,15 +26,7 @@ class App{
 			unset($param[0]);
 			unset($param[1]);
 
-			$paramUrl = explode('?', $_SERVER['REQUEST_URI']);
-
-			if(!empty($paramUrl[1])):
-				parse_str($paramUrl[1], $queryString);
-
-				foreach($queryString as $key => $valor):
-					$param[] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_STRING);
-				endforeach;
-			endif;
+			$parametro[] = $this->cleanGET($param);
 
 			$this->params = ($param) ? array_values($param) : [] ;
 		}catch (Exception $e){
@@ -54,6 +46,10 @@ class App{
 			   $this->controller->post = $this->post;
 			endif;
 
+			if (isset($this->params)):
+				$this->controller->get = $this->params;
+			endif;
+
 			if(method_exists($this->controller, $this->method)):
 				call_user_func_array([$this->controller, $this->method], $this->params);
 			endif;	
@@ -67,6 +63,17 @@ class App{
 		foreach($_POST as $key => $valor):
 			$this->post[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING);
 		endforeach;	
+	}
+
+	// Método para limpar os valores enviados via GET
+	private function cleanGET($parametroURL=null){
+		$param[] = null;
+
+		if(!empty($parametroURL)):
+			$param[] = filter_var_array($parametroURL, FILTER_SANITIZE_STRING);
+		endif;
+
+		return (isset($param[1])) ? $param[1] : '';
 	}
 
 }

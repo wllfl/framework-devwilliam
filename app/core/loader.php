@@ -2,9 +2,27 @@
 
 class Loader{
 
+    public function model($nameModel){
+        $nameModel = $nameModel . 'Model';
+        if (file_exists(MODEL_PATH . $nameModel . '.php')):
+            require_once MODEL_PATH . $nameModel . '.php';
+            return new $nameModel;
+        else:
+            erro::redirectErro("O Model solicitado '" . MODEL_PATH . $nameModel . ".php' não foi encontrado!");
+        endif;
+    }
+
+    public function view($nameView, $dados){
+        if (file_exists(VIEW_PATH . $nameView . '.php'))
+            require_once VIEW_PATH . $nameView . '.php';
+        else
+            erro::redirectErro("A View solicitada '" . VIEW_PATH . $nameView . ".php' não foi encontrada!");
+    }
+
     public function library($lib){
     	if (file_exists(LIB_PATH . "{$lib}.class.php")):
         	include LIB_PATH . "{$lib}.class.php";
+            $lib = new $lib;
 		else:
 			erro::redirectErro("A Biblioteca solicitada '" . LIB_PATH . $lib . ".class.php' não foi encontrada!");
 		endif;
