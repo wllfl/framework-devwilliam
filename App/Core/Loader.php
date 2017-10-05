@@ -10,7 +10,7 @@ class Loader{
             require_once MODEL_PATH . $nameModel . '.php';
             return new $nameModel;
         else:
-            erro::redirectErro("O Model solicitado '" . MODEL_PATH . $nameModel . ".php' não foi encontrado!");
+            Erro::redirectErro("O Model solicitado '" . MODEL_PATH . $nameModel . ".php' não foi encontrado!");
         endif;
     }
 
@@ -18,7 +18,7 @@ class Loader{
         if (file_exists(VIEW_PATH . $nameView . '.php'))
             require_once VIEW_PATH . $nameView . '.php';
         else
-            erro::redirectErro("A View solicitada '" . VIEW_PATH . $nameView . ".php' não foi encontrada!");
+            Erro::redirectErro("A View solicitada '" . VIEW_PATH . $nameView . ".php' não foi encontrada!");
     }
 
     public function library($lib){
@@ -26,7 +26,7 @@ class Loader{
         	include LIB_PATH . "{$lib}.class.php";
             $lib = new $lib;
 		else:
-			erro::redirectErro("A Biblioteca solicitada '" . LIB_PATH . $lib . ".class.php' não foi encontrada!");
+			Erro::redirectErro("A Biblioteca solicitada '" . LIB_PATH . $lib . ".class.php' não foi encontrada!");
 		endif;
     }
 
@@ -34,7 +34,7 @@ class Loader{
         if (file_exists(HELPER_PATH . "{$helper}_helper.php")):
         	include HELPER_PATH . "{$helper}_helper.php";
 		else:
-			erro::redirectErro("O arquivo Helper solicitado '" . HELPER_PATH . $helper . "_helper.php' não foi encontrado!");
+			Erro::redirectErro("O arquivo Helper solicitado '" . HELPER_PATH . $helper . "_helper.php' não foi encontrado!");
 		endif;
     }
 

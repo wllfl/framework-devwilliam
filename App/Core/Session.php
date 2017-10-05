@@ -9,7 +9,7 @@ class Session {
         $status = session_status();
 
         if($status == PHP_SESSION_DISABLED) {
-            erro::redirectErro('Session está desabilitada!');
+            Erro::redirectErro('Session está desabilitada!');
         }
 
         if($status == PHP_SESSION_NONE) {

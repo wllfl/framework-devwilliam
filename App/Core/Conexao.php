@@ -42,7 +42,7 @@ class conexao {
         endswitch;
 
         if(empty($extensao) || !extension_loaded($extensao)):
-            erro::redirectErro("Extensão PDO '{$extensao}' não está habilitada!");
+            Erro::redirectErro("Extensão PDO '{$extensao}' não está habilitada!");
         endif;
     }
 
@@ -76,7 +76,7 @@ class conexao {
                 endswitch;
                 self::$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (Exception $e) {
-                erro::redirectErro($e->getMessage());
+                Erro::redirectErro($e->getMessage());
             }
         }
         return self::$pdo;

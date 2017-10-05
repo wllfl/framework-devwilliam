@@ -11,7 +11,7 @@ class Model{
 		try{
 			$this->conn = Conexao::getInstance();
 		} catch (Exception $e) {
-            erro::redirectErro($e->getMessage());
+            Erro::redirectErro($e->getMessage());
         }
 	}
 
@@ -30,7 +30,7 @@ class Model{
 
 			return $stm->execute();
 		}catch(Exception $e){
-			erro::redirectErro($e->getMessage());
+			Erro::redirectErro($e->getMessage());
 		}
 	}
 
@@ -59,7 +59,7 @@ class Model{
 
 			return $stm->execute();
 		}catch(Exception $e){
-			erro::redirectErro($e->getMessage());
+			Erro::redirectErro($e->getMessage());
 		}
 	}
 
@@ -79,7 +79,7 @@ class Model{
 
 			return $stm->execute();
 		}catch(Exception $e){
-			erro::redirectErro($e->getMessage());
+			Erro::redirectErro($e->getMessage());
 		}
 	}
 
@@ -98,7 +98,7 @@ class Model{
 			else
 			    return $stm->fetch(PDO::FETCH_OBJ);
 		}catch(Exception $e){
-			erro::redirectErro($e->getMessage());
+			Erro::redirectErro($e->getMessage());
 		}
 	}
 }

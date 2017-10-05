@@ -14,7 +14,7 @@ class Controller{
 			$this->session = new session();
 			$this->loader  = new loader();
 		}catch(Exception $e){
-			erro::redirectErro($e->getMessage());
+			Erro::redirectErro($e->getMessage());
 		}
 	}
 
@@ -23,7 +23,7 @@ class Controller{
 			header('Content-Type: application/json');
 			echo json_encode($dados);
 		}catch(Exception $e){
-			erro::redirectErro($e->getMessage());
+			Erro::redirectErro($e->getMessage());
 		}
 	}
 

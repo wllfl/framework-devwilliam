@@ -36,7 +36,7 @@ class App{
 
 			$this->params = ($param) ? array_values($param) : [] ;
 		}catch (Exception $e){
-			erro::redirectErro($e->getMessage());
+			Erro::redirectErro($e->getMessage());
 		}
 	}
 
@@ -60,7 +60,7 @@ class App{
 				call_user_func_array([$this->controller, $this->method], $this->params);
 			endif;	
 		else:
-			erro::redirectErro("Arquivo Controller não encontrado '" . CONTROLLER_PATH . $this->controller . ".php'!");
+			Erro::redirectErro("Arquivo Controller não encontrado '" . CONTROLLER_PATH . $this->controller . ".php'!");
 		endif;
 	} 
 
