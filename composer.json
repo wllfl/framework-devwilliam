@@ -1,5 +1,5 @@
 {
-	"name": "Framework DevWilliam",
+	"name": "FrameworkDevWilliam",
 	"type": "Framework",
 	"description": "Micro Framework para desenvolvimento em PHP",
 	"keywords": ["framework","php"],
@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"authors": [
 	    {
-	        "name": "Framework DevWilliam",
+	        "name": "FrameworkDevWilliam",
 	        "email": "wllsistemas@wllsistemas.com.br",
 	        "role": "Developer"
 	    }
