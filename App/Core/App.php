@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+Namespace App\Core; 
+
+require 'Config.php';
 
 class App{
 
@@ -7,6 +11,7 @@ class App{
 	protected $method     = '';
 	protected $params     = [];
 	protected $post       = [];
+	protected $get        = [];
 
 	// Construtor da Classe
 	public function __construct(){
@@ -18,8 +23,9 @@ class App{
 	private function parseUrl(){
 
 		try{
-			$url   = (isset($_GET['url'])) ? filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL) : [];
-			$param = (!empty($url)) ? explode('/', $url) : [];
+			$urlGET = (isset($_GET['url'])) ? utf8_encode($_GET['url']) : '';
+			$url    = (!empty($urlGET)) ? filter_var(rtrim($urlGET, '/'), FILTER_SANITIZE_URL) : [];
+			$param  = (!empty($url)) ? explode('/', $url) : [];
 			$this->controller = (isset($param[0])) ? $param[0] . 'Controller' : CONTROLLER_DEFAULT;
 			$this->method     = (isset($param[1])) ? $param[1] : METHOD_DEFAULT;
 

@@ -1,5 +1,7 @@
 <?php
 
+Namespace App\Core; 
+
 class Session {
 
     public function __construct() {

@@ -3,7 +3,7 @@
 /*
  * Constantes com parametros dos caminhos
  */
-define('BASE_URL', 'http://sistemas.com/nfe/');
+define('BASE_URL', 'http://localhost:8888/framework-devwilliam/');
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', getcwd() . DS);
 define('APP_PATH', ROOT . 'app' . DS);
@@ -20,7 +20,7 @@ define('AMBIENTE', 'desenvolvimento');
 /*
  * Valores padrão
  */
-define('CONTROLLER_DEFAULT', 'adminController');
+define('CONTROLLER_DEFAULT', 'homeController');
 define('METHOD_DEFAULT', 'index');
 
 

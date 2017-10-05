@@ -1,5 +1,7 @@
 <?php
 
+Namespace App\Core; 
+
 class Loader{
 
     public function model($nameModel){

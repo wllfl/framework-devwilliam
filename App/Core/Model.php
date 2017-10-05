@@ -1,5 +1,7 @@
 <?php 
 
+Namespace App\Core; 
+
 class Model{
 
 	protected $table;

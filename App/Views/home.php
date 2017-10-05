@@ -6,11 +6,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1><?php foreach($dados['usuarios'] as $usuario):?></h1>
-			<p><?=$usuario->nome?></p>
-		<h1><?php endforeach;?></h1>
-
-		<a href="#" class='btn btn-success'>Meu Link</a>
+		<?=$dados['senha']?>
 	</div>
 </body>
 </html>

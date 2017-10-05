@@ -1,5 +1,7 @@
 <?php
 
+Namespace App\Core; 
+
 class erro{
 	
 	public static function redirectErro($erro) {
