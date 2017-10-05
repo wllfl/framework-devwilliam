@@ -6,7 +6,7 @@ Antes de iniciar é necessário ajustar algumas constantes para conexão com ban
 
 | Campo | Descrição | Uso |
 | :---- | :---- | :---- |
-| BASE_URL | URL base do sistema (localmente ou no servidor WEB) | Idêntifica a base onde o framework começa a procurar dos scripts |
+| BASE_URL | URL base do sistema (localmente ou no servidor WEB) | Idêntifica a base onde o framework começa a procura os scripts |
 | CONTROLLER_DEFAULT | Controller padrão | Se nada for informado após a URL base esse controller será executado |
 | METHOD_DEFAULT | Método (ou Action) Padrão | Se nada for informado após a URL base o controller será executado e o método padrão também |
 | SGBD | Sistema Gerenciador de Banco de Dados | O framework utiliza a engine PDO aceitando os sgbds mysql, postgre e sqlserver |
