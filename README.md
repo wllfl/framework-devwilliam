@@ -8,3 +8,4 @@ Esse projeto foi desenvolvido para atender as necessidades básicas de um framew
 - Baixa Curva de Aprendizado
 - Multi Database com a Engine PDO
 - Simplicidade no desenvolvimento
+- Trabalha com Namespace e autoload psr-4
