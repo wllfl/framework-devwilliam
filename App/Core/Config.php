@@ -29,9 +29,9 @@ define('METHOD_DEFAULT', 'index');
  * Constantes de parâmetros para configuração da conexão com banco de dados
  */
 define('SGBD', 'mysql');
-define('HOST', '192.168.0.2');
-define('DBNAME', 'nfe');
+define('HOST', 'localhost');
+define('DBNAME', 'test');
 define('CHARSET', 'utf8');
 define('USER', 'root');
-define('PASSWORD', '011224');
-define('SERVER', 'linux');
+define('PASSWORD', '');
+define('SERVER', 'windows');

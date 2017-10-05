@@ -8,7 +8,11 @@ class Model{
 	protected $conn;
 
 	public function __construct(){
-		$this->conn = Conexao::getInstance();
+		try{
+			$this->conn = Conexao::getInstance();
+		} catch (Exception $e) {
+            erro::redirectErro($e->getMessage());
+        }
 	}
 
 	public function insert($dados=[]){

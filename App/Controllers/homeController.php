@@ -17,9 +17,9 @@ class homeController extends Controller{
 		$this->loader->view(
 			'Home/home', 
 			[
-				'titulo'  => 'Título da View', 
-				'usuario' => $usuarios,
-				'senha'   => gerarSenha()
+				'titulo'   => 'Título da View', 
+				'usuarios' => $usuarios,
+				'senha'    => gerarSenha()
 			]
 		);
 	}

@@ -1,5 +1,7 @@
 <?php 
 
+Use App\Core\Model;
+
 class usuarioModel extends Model{
 
 	public function __construct(){
