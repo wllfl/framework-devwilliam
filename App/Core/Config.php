@@ -35,13 +35,3 @@ define('CHARSET', 'utf8');
 define('USER', 'root');
 define('PASSWORD', '011224');
 define('SERVER', 'linux');
-
-
-/*
- * Constantes servidor SMTP
- */
-define('SERVIDOR', 'smtp.gmail.com');
-define('PORTA', 465);
-define('USUARIO', 'wllsistemas02@gmail.com');
-define('SENHA', '011224wllfl');
-define('AUTENTICACAO', 'SSL');
