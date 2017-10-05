@@ -1,4 +1,21 @@
 {
+	"name": "Framework DevWilliam",
+	"type": "Framework",
+	"description": "Micro Framework para desenvolvimento em PHP",
+	"keywords": ["framework","php"],
+	"homepage": "https://github.com/wllfl/framework-devwilliam",
+	"license": "MIT",
+	"authors": [
+	    {
+	        "name": "Framework DevWilliam",
+	        "email": "wllsistemas@wllsistemas.com.br",
+	        "role": "Developer"
+	    }
+	],
+	"minimum-stability": "stable",
+	 "require": {
+	    "php": ">=5.6.0"
+	},
 	"autoload" :{
 		"psr-4": {
 			"App\\Core\\" : "App/Core/"
