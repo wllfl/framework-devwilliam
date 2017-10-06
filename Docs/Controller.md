@@ -1,6 +1,6 @@
 # CONTROLLER
 
-Para criar um novo controller é necessário que o mesmo seja extendido da classe "Controller", o nome do script e da classe deve seguir o padrão **lowerCamelCase**: 
+Para criar um novo controller é necessário que o mesmo seja extendido da classe **Controller**, o nome do script e da classe deve seguir o padrão **lowerCamelCase**: 
 - Exemplo nome do script: **usuarioController.php**
 - Exemplo nome da classe: **usuarioController**
 
